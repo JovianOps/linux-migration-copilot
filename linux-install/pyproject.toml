@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linux-migration-copilot"
+version = "1.0.0"
+description = "One-click bridge from Windows to Linux"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+lmc-install = "linux_install:main"
+
+[tool.setuptools]
+py-modules = ["linux_install"]

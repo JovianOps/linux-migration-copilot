@@ -1,0 +1,5 @@
+profile.json
+/bin
+/obj
+/dist
+/*.tmp
