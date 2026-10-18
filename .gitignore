@@ -3,3 +3,14 @@ profile.json
 /obj
 /dist
 /*.tmp
+
+# Build artifacts
+windows-scan/bin/
+windows-scan/obj/
+windows-scan/dist/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+*.exe
