@@ -1,0 +1,2 @@
+C:\Users\RDC\AppData\Local\hermes\cache\scratch\lmc_final\dist\WindowsScan.pdb
+C:\Users\RDC\AppData\Local\hermes\cache\scratch\lmc_final\dist\WindowsScan.exe

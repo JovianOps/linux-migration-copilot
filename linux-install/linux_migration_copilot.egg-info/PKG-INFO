@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: linux-migration-copilot
+Version: 1.0.0
+Summary: One-click bridge from Windows to Linux
+Requires-Python: >=3.8

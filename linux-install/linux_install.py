@@ -73,8 +73,8 @@ def install_flatpak(package: str) -> bool:
 
 def port_dotfiles(profile: dict, home: Path) -> None:
     """Copy dotfiles from profile to home directory."""
-    dotfiles = profile.get("dotfiles", {})
-    files = dotfiles.get("files", {}) if isinstance(dotfiles, dict) else {}
+    dotfiles = profile.get("Dotfiles") or profile.get("dotfiles", {})
+    files = dotfiles.get("Files") or dotfiles.get("files", {}) if isinstance(dotfiles, dict) else {}
 
     for name, content in files.items():
         if "/" in name:
@@ -88,26 +88,27 @@ def port_dotfiles(profile: dict, home: Path) -> None:
 
 
 def port_ssh_config(profile: dict, home: Path) -> None:
-    ssh_config = profile.get("ssh_config", {})
+    ssh_config = profile.get("SshConfig") or profile.get("ssh_config", {})
     if not ssh_config:
         return
 
     ssh_dir = home / ".ssh"
     ssh_dir.mkdir(exist_ok=True)
 
-    config_text = ssh_config.get("configText", "")
+    config_text = ssh_config.get("ConfigText") or ssh_config.get("configText", "")
     if config_text:
         (ssh_dir / "config").write_text(config_text)
         print("  Ported: ~/.ssh/config")
 
-    for keyfile in ssh_config.get("keyFiles", []):
+    for keyfile in ssh_config.get("KeyFiles") or ssh_config.get("keyFiles", []):
         print(f"  Note: manually copy ~/.ssh/{keyfile} from backup")
 
 
 def port_terminal_config(profile: dict, home: Path) -> None:
     """Port terminal settings - best effort."""
-    tc = profile.get("terminal_config", {})
-    if tc.get("windowsTerminalSettings"):
+    tc = profile.get("TerminalConfig") or profile.get("terminal_config", {})
+    settings = tc.get("WindowsTerminalSettings") or tc.get("windowsTerminalSettings")
+    if settings:
         # Map to common Linux terminal configs
         lines = [
             "# Windows Terminal settings ported (review needed)",
@@ -163,11 +164,11 @@ def main(argv: list[str] | None = None) -> int:
     installed: list[str] = []
     skipped: list[str] = []
 
-    apps = profile.get("installed_apps", [])
+    apps = profile.get("InstalledApps", []) or profile.get("installed_apps", [])
     print(f"\nProcessing {len(apps)} Windows apps...")
 
     for app in apps:
-        name = app.get("name", "")
+        name = app.get("Name") or app.get("name", "")
         linux_pkg = map_app(name, mappings)
         if linux_pkg:
             print(f"  {name} -> {linux_pkg}")
@@ -188,7 +189,7 @@ def main(argv: list[str] | None = None) -> int:
     port_terminal_config(profile, home)
 
     # Port PATH entries
-    win_path = profile.get("path", [])
+    win_path = profile.get("Path") or profile.get("path", [])
     if win_path:
         bashrc = home / ".bashrc"
         existing = bashrc.read_text() if bashrc.exists() else ""

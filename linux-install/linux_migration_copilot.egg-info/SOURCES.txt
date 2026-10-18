@@ -1,0 +1,7 @@
+linux_install.py
+pyproject.toml
+linux_migration_copilot.egg-info/PKG-INFO
+linux_migration_copilot.egg-info/SOURCES.txt
+linux_migration_copilot.egg-info/dependency_links.txt
+linux_migration_copilot.egg-info/entry_points.txt
+linux_migration_copilot.egg-info/top_level.txt
