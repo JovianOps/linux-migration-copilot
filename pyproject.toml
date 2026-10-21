@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linux-migration-copilot"
+version = "1.0.0"
+description = "Migrate your Windows desktop to Linux in one command"
+requires-python = ">=3.8"
+
+[project.scripts]
+lmc-scan = "scan:main"
+lmc-install = "linux_install:main"
+lmc-sync = "lmc_sync:main"
+
+[tool.setuptools]
+py-modules = ["scan", "linux_install", "lmc_sync"]

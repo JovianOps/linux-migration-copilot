@@ -10,7 +10,7 @@
     "Microsoft Edge": "microsoft-edge",
     "Discord": "discord",
     "Slack": "slack-desktop",
-    "Teams": "obs-studio",
+    "Teams": "teams",
     "Spotify": "spotify",
     "7-Zip": "p7zip-full",
     "WinRAR": "unrar",
@@ -43,6 +43,11 @@
     "Adobe Illustrator": "inkscape",
     "Blender": "blender",
     "Unity Hub": "unityhub",
-    "Tableau": "apache-superset"
+    "Tableau": "apache-superset",
+    "Adobe Premiere Pro": "kdenlive",
+    "Adobe After Effects": "blender",
+    "Adobe Lightroom": "darktable",
+    "Adobe InDesign": "scribus",
+    "Notepad++": "gedit"
   }
 }

@@ -1,8 +1,7 @@
 profile.json
-/bin
-/obj
-/dist
-/*.tmp
+profile.lmc
+/tmp/
+/node_modules/
 
 # Build artifacts
 windows-scan/bin/
@@ -14,3 +13,9 @@ build/
 __pycache__/
 *.pyc
 *.exe
+
+# Python
+.pytest_cache/
+*.log
+*.so
+*.dylib
